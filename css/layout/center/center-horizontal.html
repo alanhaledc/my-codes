@@ -1,0 +1,77 @@
+<!--
+ * @Author: Hale
+ * @Description: 水平居中
+ * @Date: 2019/01/31
+ * @LastEditTime: 2020/09/06
+ -->
+
+<style>
+  /* 公共样式 */
+  .parent {
+    width: 400px;
+    height: 80px;
+    border: 1px solid #f00;
+  }
+  .child {
+    width: 200px;
+    height: 40px;
+    border: 2px solid #0f0;
+  }
+
+  /* text-align + inline-block */
+  .parent1 {
+    text-align: center;
+  }
+  .child1 {
+    display: inline-block;
+  }
+
+  /* 子元素 table + margin */
+  .child2 {
+    display: table;
+    margin: 0 auto;
+  }
+
+  /* 弹性布局 1 flex + margin */
+  .parent3 {
+    display: flex;
+  }
+  .child3 {
+    margin: 0 auto;
+  }
+
+  /* 弹性布局 2 flex + justify-content */
+  .parent4 {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* 绝对定位 absolute + translate */
+  .parent5 {
+    position: relative;
+  }
+  .child5 {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  /* 网格布局 grid + justify-self */
+  .parent6 {
+    display: grid;
+  }
+  .child6 {
+    justify-self: center;
+  }
+</style>
+<div class="parent parent1"><div class="child child1">Demo1</div></div>
+<hr />
+<div class="parent parent2"><div class="child child2">Demo2</div></div>
+<hr />
+<div class="parent parent3"><div class="child child3">Demo3</div></div>
+<hr />
+<div class="parent parent4"><div class="child child4">Demo4</div></div>
+<hr />
+<div class="parent parent5"><div class="child child5">Demo5</div></div>
+<hr />
+<div class="parent parent6"><div class="child child6">Demo6</div></div>

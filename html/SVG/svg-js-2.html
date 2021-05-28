@@ -1,0 +1,23 @@
+<!--
+ * @Author: Hale
+ * @Description: svg 和 js 一起使用
+ * @Date: 2019/02/12
+ * @LastEditTime: 2019/10/17
+ -->
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xml:space="preserve"
+  width="500"
+  height="440"
+>
+  <circle id="my-circle" cx="400" cy="300" r="250"></circle>
+</svg>
+
+<script>
+  var svgString = new XMLSerializer().serializeToString(
+    document.querySelector("svg")
+  );
+  console.log(svgString);
+</script>

@@ -1,0 +1,24 @@
+<!--
+ * @Author: Hale
+ * @Description: 绘制矩形
+ * @Date: 2019/02/19
+ * @LastEditTime: 2019/10/17
+ -->
+
+<canvas
+  id="my-canvas"
+  width="200"
+  height="100"
+  style="border: 1px solid #000;"
+></canvas>
+<script>
+  var c = document.querySelector("#my-canvas");
+  var ctx = c.getContext("2d");
+
+  ctx.fillStyle = "#f00";
+  ctx.fillRect(0, 0, 150, 75);
+
+  // getContext 获取context对象
+  // fillStyle 样式
+  // fillRect(x, y, width, height) 左上角坐标和宽高
+</script>

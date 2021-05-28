@@ -1,0 +1,24 @@
+<!--
+ * @Author: Hale
+ * @Description: 设置过渡动画 animateTransform
+ * @Date: 2019/02/12
+ * @LastEditTime: 2019/10/17
+ -->
+
+<svg width="500" height="500">
+  <rect x="250" y="250" width="50" height="50" fill="#4bc0c8">
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      begin="0s"
+      dur="10s"
+      from="0 200 200"
+      to="360 400 400"
+      repeatCount="indefinite"
+    ></animateTransform>
+  </rect>
+</svg>
+
+<!-- animateTransform  -->
+<!-- from="0 200 200" 角度 旋转横坐标 旋转纵坐标 表示开始时，角度为 0°，围绕 (200,200) 开始旋转 -->
+<!-- to="360 400 400" 角度 旋转横坐标 旋转纵坐标 表示结束时，角度为 360°，围绕 (400,400) 旋转 -->

@@ -1,0 +1,65 @@
+<!--
+ * @Author: Hale
+ * @Description: 
+ * @Date: 2020/02/07
+ * @LastEditTime: 2020/09/05
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>input new props</title>
+  </head>
+  <body>
+    number: <input type="number" name="number" /><br />
+    email: <input type="email" name="email" /><br />
+    tel: <input type="tel" name="tel" /><br />
+    url: <input type="url" name="url" /><br />
+    range: <input type="range" value="1" /><br />
+    search: <input type="search" name="search" /><br />
+    color: <input type="color" name="color" /><br />
+
+    <hr />
+    <!-- date -->
+    date: <input type="date" name="date" /><br />
+    month: <input type="month" name="month" /><br />
+    week: <input type="week" name="week" /><br />
+    time: <input type="time" name="time" /><br />
+    datetime: <input type="datetime" name="datetime" /><br />
+    datetime-local: <input type="datetime-local" name="datetime-local" /><br />
+
+    <hr />
+    autocomplete
+    <form action="#" method="POST">
+      <input type="text" name="text" autocomplete="on" />
+      <input type="password" name="password" autocomplete="on" />
+      <input type="submit" />
+    </form>
+
+    <hr />
+    autofocus + placeholder
+    <input type="text" name="text" />
+    <input
+      type="email"
+      name="email"
+      autocomplete="off"
+      autofocus="autofocus"
+      placeholder="autofocus"
+    />
+    <input type="submit" />
+
+    <hr />
+    multiple
+    <input type="file" name="file" multiple="multiple" />
+
+    <hr />
+    required
+    <form action="input.html">
+      text: <input type="text" name="text" required /><br />
+      email: <input type="email" name="email" required /><br />
+      password: <input type="password" name="password" required /><br />
+      <input type="submit" />
+    </form>
+  </body>
+</html>

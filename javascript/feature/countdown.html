@@ -1,0 +1,53 @@
+<!--
+ * @Author: Hale
+ * @Description: 倒计时简单实现
+ * @Date: 2019/01/18
+ * @LastEditTime: 2020/06/01
+ -->
+
+<div class="countdown"></div>
+<script>
+  window.onload = function () {
+    showTime();
+    function showTime() {
+      var now = new Date();
+      var endTime = new Date("2022-6-30");
+      var leftTime = formatTime(endTime - now);
+      var element = document.querySelector(".countdown");
+
+      element.innerHTML =
+        "倒计时:" +
+        leftTime.d +
+        "天" +
+        leftTime.h +
+        "小时" +
+        leftTime.m +
+        "分" +
+        leftTime.s +
+        "秒";
+
+      if (endTime - now <= 0) {
+        element.innerHTML = "活动已结束！";
+        return;
+      }
+
+      setTimeout(showTime, 1000);
+    }
+  };
+
+  function formatTime(ms) {
+    var s = ms / 1000;
+    var m = s / 60;
+    return {
+      d: leftPad(m / 60 / 24),
+      h: leftPad((m / 60) % 24),
+      m: leftPad(m % 60),
+      s: leftPad(s % 60),
+    };
+  }
+
+  function leftPad(num) {
+    var n = parseInt(num, 10);
+    return n < 10 ? "0" + n : n;
+  }
+</script>

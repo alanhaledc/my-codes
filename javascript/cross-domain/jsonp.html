@@ -1,0 +1,51 @@
+<!--
+ * @Author: Hale
+ * @Description: JSONP
+ * @Date: 2019/01/11
+ * @LastEditTime : 2020/02/04
+ -->
+
+<head>
+  <!-- 在 head 标签里生成的 script 标签 -->
+  <!-- <script src="跨域服务器/score.php?id=030205&callback=searchScore"></script> -->
+</head>
+<body>
+  <script>
+    // 本地函数
+    var searchScore = function (data) {
+      alert(
+        data.class +
+          data.name +
+          "同学的成绩是：语文：" +
+          data.score.chinese +
+          "; 数学：" +
+          data.score.math +
+          "。"
+      );
+    };
+
+    // 需要提供服务器的 url，传入 id 和 callback 函数名（前后端约定好函数名）
+    var url = "跨域服务器/score.php?id=030206&callback=searchScore";
+
+    // 新建一个 script 标签
+    var script = document.createElement("script");
+
+    // 设置 script 标签的 src 值为 url
+    script.setAttribute("src", url);
+
+    // 把创建的 script 标签放入到在 head 标签里
+    document.getElementsByTagName("head")[0].appendChild(script);
+
+    console.log("-------- 华丽的分割线 --------");
+
+    // 服务器返回的代码格式（传入数据作为函数的参数，并调用本地函数）
+    searchScore({
+      class: "三年级二班",
+      name: "李明",
+      score: {
+        chinese: 80,
+        math: 85,
+      },
+    });
+  </script>
+</body>

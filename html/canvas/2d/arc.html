@@ -1,0 +1,24 @@
+<!--
+ * @Author: Hale
+ * @Description: 绘制圆
+ * @Date: 2019/02/19
+ * @LastEditTime: 2019/10/17
+ -->
+
+<canvas
+  id="my-canvas"
+  width="200"
+  height="100"
+  style="border: 1px solid #000;"
+></canvas>
+
+<script>
+  var c = document.querySelector("#my-canvas");
+  var ctx = c.getContext("2d");
+
+  ctx.beginPath();
+  ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+  ctx.stroke();
+
+  // arc(x, y, r, start, stop) 圆心坐标（x, y）、半径、开始、结束
+</script>

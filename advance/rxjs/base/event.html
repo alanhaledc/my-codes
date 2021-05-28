@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rxjs event demo</title>
+  </head>
+  <body>
+    <button class="target">click</button>
+    <script src="https://cdn.bootcdn.net/ajax/libs/rxjs/7.0.0-alpha.0/rxjs.umd.min.js"></script>
+    <script>
+      const target = document.querySelector(".target");
+      const { fromEvent } = rxjs;
+      const { scan, throttleTime, map } = rxjs.operators;
+
+      // fromEvent(target, "click").subscribe(() => console.log("hello world"));
+
+      // fromEvent(document, "click")
+      //   .pipe(scan((count) => count + 1, 0)) // scan 类似数组的 reduce
+      //   .subscribe((count) => console.log(`Clicked ${count} times`));
+
+      // fromEvent(document, "click")
+      //   .pipe(
+      //     throttleTime(1000),
+      //     scan((count) => count + 1, 0)
+      //   )
+      //   .subscribe((count) => console.log(`Clicked ${count} times`));
+
+      fromEvent(document, "click")
+        .pipe(
+          throttleTime(1000),
+          map((event) => event.clientX),
+          scan((count, clientX) => count + clientX, 0)
+        )
+        .subscribe((count) => console.log(count));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!--
+ * @Author: Hale
+ * @Description: svg 和 js 一起使用
+ * @Date: 2019/02/12
+ * @LastEditTime: 2019/10/17
+ -->
+
+<style>
+  circle {
+    stroke: #f00;
+    stroke-width: 5;
+    fill: #ff0;
+  }
+  circle:hover {
+    stroke: #090;
+    fill: #fff;
+  }
+</style>
+
+<svg
+  id="my-svg"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 800 600"
+  preserveAspectRatio="xMidYMid"
+  meet
+>
+  <circle id="my-circle" cx="400" cy="300" r="50"></circle>
+</svg>
+
+<script>
+  var myCircle = document.getElementById("my-circle");
+  myCircle.addEventListener(
+    "click",
+    function (e) {
+      console.log("circle clicked enlarging");
+      myCircle.setAttribute("r", 60);
+    },
+    false
+  );
+</script>

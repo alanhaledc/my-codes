@@ -1,0 +1,29 @@
+<!--
+ * @Author: Hale
+ * @Description: sticky footer -> absolute
+ * @Date: 2019/01/31
+ * @LastEditTime: 2020/06/11
+ -->
+
+<style>
+  html,
+  body {
+    height: 100%;
+  }
+  .wrapper {
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+  }
+</style>
+
+<section class="wrapper">
+  <article class="content">主要内容</article>
+  <footer class="footer">页脚内容</footer>
+</section>

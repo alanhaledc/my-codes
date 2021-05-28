@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>variable demo</title>
+  </head>
+  <style>
+    /* css 变量 兼容现代浏览器 */
+
+    :root {
+      --color-red: red; /* 使用 `--` 前缀定义变量 */
+      --color-blue: blue;
+      --font-m: 22px;
+      --font-s: 12;
+      --color-bg: var(--color-blue, blue); /* 变量传递, 第二个是默认值 */
+    }
+
+    .root {
+      width: 300px;
+      height: 300px;
+      border: 1px solid pink;
+      color: var(--color-red); /* 使用 var 关键字调用变量 */
+      font-size: var(--font-m);
+      font-size: calc(var(--font-s) * 4px);
+      background-color: var(--color-bg);
+    }
+  </style>
+  <body>
+    <div class="root">hello world</div>
+  </body>
+</html>

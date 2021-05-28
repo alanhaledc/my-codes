@@ -1,0 +1,83 @@
+<!--
+ * @Author: Hale
+ * @Description: 拖拽实现
+ * @Date: 2019/01/21
+ * @LastEditTime: 2020/06/01
+ -->
+
+<style>
+  .box {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background: red;
+    cursor: move;
+  }
+</style>
+<body>
+  <div id="box" class="box"></div>
+  <script>
+    (function () {
+      var dragging = false;
+      var boxX, boxY, mouseX, mouseY, offsetX, offsetY;
+
+      var box = document.getElementById("box");
+
+      // 鼠标按下
+      box.onmousedown = down;
+      // 鼠标移动 绑定 document
+      document.onmousemove = move;
+      // 鼠标释放 绑定 document
+      document.onmouseup = up;
+
+      function down(e) {
+        dragging = true;
+        boxX = box.offsetLeft;
+        boxY = box.offsetTop;
+        mouseX = parseInt(getMouseXY(e).x);
+        mouseY = parseInt(getMouseXY(e).y);
+        offsetX = mouseX - boxX;
+        offsetY = mouseY - boxY;
+      }
+
+      function move(e) {
+        if (dragging) {
+          var x = getMouseXY(e).x - offsetX;
+          var y = getMouseXY(e).y - offsetY;
+          // 可移动的大小
+          var width = document.documentElement.clientWidth - box.offsetWidth;
+          var height = document.documentElement.clientHeight - box.offsetHeight;
+
+          x = Math.min(Math.max(0, x), width);
+          y = Math.min(Math.max(0, y), height);
+
+          box.style.left = x + "px";
+          box.style.top = y + "px";
+        }
+      }
+
+      function up(e) {
+        dragging = false;
+      }
+
+      // 获取鼠标的坐标
+      function getMouseXY(e) {
+        var x = 0;
+        var y = 0;
+        e = e || window.event;
+        if (e.pageX) {
+          x = e.pageX;
+          y = e.pageY;
+        } else {
+          // IE 浏览器获取坐标
+          x = e.clientX + document.body.scrollLeft - document.body.clientLeft;
+          y = e.clientY + document.body.scrollTop - document.body.clientTop;
+        }
+        return {
+          x: x,
+          y: y,
+        };
+      }
+    })();
+  </script>
+</body>

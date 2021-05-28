@@ -1,0 +1,34 @@
+<!--
+ * @Author: Hale
+ * @Description: 三栏布局之表格布局
+ * @Date: 2019/01/31
+ * @LastEditTime: 2019/10/17
+ -->
+
+<style>
+  .container {
+    display: table;
+    width: 100%;
+    height: 300px;
+  }
+  .left {
+    display: table-cell;
+    width: 300px;
+    background: red;
+  }
+  /* 中间自适应不用定义宽度 */
+  .main {
+    display: table-cell;
+    background: yellow;
+  }
+  .right {
+    display: table-cell;
+    width: 300px;
+    background: green;
+  }
+</style>
+<section class="container">
+  <div class="left">left</div>
+  <div class="main">这是表格布局的中间部分</div>
+  <div class="right">right</div>
+</section>

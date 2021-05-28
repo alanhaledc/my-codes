@@ -1,0 +1,32 @@
+<!--
+ * @Author: Hale
+ * @Description: 双向绑定实例极简版 Object.defineProperty
+ * @Date: 2019/01/14
+ * @LastEditTime: 2020/06/01
+ -->
+
+<main>
+  <p>请输入值</p>
+  <input type="text" id="input" />
+  <p id="text"></p>
+</main>
+<script>
+  var obj = {};
+  var input = document.getElementById("input");
+  var text = document.getElementById("text");
+
+  Object.defineProperty(obj, "text", {
+    get() {
+      console.log("get value");
+    },
+    set(newVal) {
+      console.log("set value " + newVal);
+      input.value = newVal;
+      text.innerText = newVal;
+    },
+  });
+
+  input.addEventListener("keyup", function (event) {
+    obj.text = event.target.value;
+  });
+</script>

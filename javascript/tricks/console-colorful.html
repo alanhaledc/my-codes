@@ -1,0 +1,99 @@
+<!--
+ * @Author: Hale
+ * @Description: 控制台彩色打印
+ * @Date: 2019/01/31
+ * @LastEditTime: 2019/10/18
+ -->
+
+<h1>彩色打印，支持在浏览器里查看，请打开控制面板</h1>
+<p>
+  console.log('%cHello', 'color: green; background: yellow; font-size: 30px')
+</p>
+<br />
+<p>
+  console.log( 'Nothing here %cHi Cat %cHey Bear', 'color:blue', 'color: red' )
+</p>
+<br />
+<ul>
+  <li>console.log</li>
+  <li>console.info</li>
+  <li>console.debug</li>
+  <li>console.warn</li>
+  <li>console.error</li>
+</ul>
+<br />
+<div>
+  <pre>
+    console.log('%cconsole.log', 'color: green;')
+    console.info('%cconsole.info', 'color: green;')
+    console.debug('%cconsole.debug', 'color: green;')
+    console.warn('%cconsole.warn', 'color: green;')
+    console.error('%cconsole.error', 'color: green;')
+  </pre>
+</div>
+<br />
+<div>
+  <pre>
+    const styles = [
+    'color: green',
+    'background: yellow',
+    'font-size: 30px',
+    'border: 1px solid red',
+    'text-shadow: 2px 2px black',
+    'padding: 10px'
+    ].join(';')
+    
+    console.log('%cHello There', styles)
+  </pre>
+</div>
+<br />
+<div>
+  <pre>
+    const styles = ['color: green', 'background: yellow'].join(';')
+    const message = 'Some Important Message Here'
+    console.log('%c%s', styles, message)
+  </pre>
+</div>
+<script>
+  // 打印 hello
+  console.log("%cHello", "color: green; background: yellow; font-size: 30px");
+
+  // 多次样式
+  console.log(
+    "Nothing here %cHi Cat %cHey Bear", // Console Message
+    "color: blue",
+    "color: red" // CSS Style
+  );
+
+  // 其他打印方式
+  console.log("%cconsole.log", "color: green;");
+  console.info("%cconsole.info", "color: green;");
+  console.debug("%cconsole.debug", "color: green;");
+  console.warn("%cconsole.warn", "color: green;");
+  console.error("%cconsole.error", "color: green;");
+
+  // 统一写法
+  const styles = [
+    "color: green",
+    "background: yellow",
+    "font-size: 30px",
+    "border: 1px solid red",
+    "text-shadow: 2px 2px black",
+    "padding: 10px",
+  ].join(";");
+
+  console.log("%cHello There", styles);
+
+  {
+    // 分离
+    const styles = ["color: green", "background: yellow"].join(";");
+    const message = "Some Important Message Here";
+    console.log("%c%s", styles, message);
+  }
+
+  // node 用法，比较复杂
+  // Cyan
+  console.log("\x1b[36m%s\x1b[0m", "I am cyan");
+  // Yellow
+  console.log("\x1b[33m%s\x1b[0m", "yellow");
+</script>

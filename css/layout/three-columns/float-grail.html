@@ -1,0 +1,47 @@
+<!--
+ * @Author: Hale
+ * @Description: 三栏布局之圣杯布局
+ * @Date: 2019/01/31
+ * @LastEditTime: 2019/10/17
+ -->
+
+<style>
+  .container {
+    margin-left: 320px;
+    margin-right: 320px;
+  }
+  .container div {
+    height: 300px;
+  }
+  .main {
+    float: left;
+    width: 100%;
+    background-color: red;
+  }
+  .left {
+    float: left;
+    width: 300px;
+    margin-left: -100%;
+    position: relative;
+    left: -320px;
+    background-color: blue;
+  }
+  .right {
+    float: left;
+    width: 300px;
+    margin-left: -300px;
+    position: relative;
+    right: -320px;
+    background-color: green;
+  }
+</style>
+<section class="container">
+  <!-- 圣杯布局；main放在最前面，左浮动，宽度 100% -->
+  <div class="main">这是圣杯布局的中间部分</div>
+
+  <!-- left 向左浮动；左外边距 -100% 相对定位 left -(本身距离 + 间隙) -->
+  <div class="left">left</div>
+
+  <!-- right 向左浮动；左外边距 -本身 相对定位 left -(本身距离 + 间隙) -->
+  <div class="right">right</div>
+</section>

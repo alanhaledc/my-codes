@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>prefers-color-scheme demo</title>
+    <style>
+      @media (prefers-color-scheme: dark) {
+        :root {
+          color: white;
+          background: black;
+        }
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          color: black;
+          background: white;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="root">hello world</div>
+    <script>
+      if (window.matchMedia("(prefers-color-scheme)").media !== "not all") {
+        console.log("浏览器支持dark模式!(^_^)");
+      }
+    </script>
+  </body>
+</html>

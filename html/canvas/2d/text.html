@@ -1,0 +1,25 @@
+<!--
+ * @Author: Hale
+ * @Description: 绘制文本
+ * @Date: 2019/02/19
+ * @LastEditTime: 2019/10/17
+ -->
+
+<canvas
+  id="my-canvas"
+  width="200"
+  height="100"
+  style="border: 1px solid #000;"
+></canvas>
+
+<script>
+  var c = document.querySelector("#my-canvas");
+  var ctx = c.getContext("2d");
+
+  ctx.font = "30px Arial";
+  // ctx.fillText('Hello World', 10, 50)
+  ctx.strokeText("Hello World", 10, 50);
+
+  // fillText(text, x, y) 绘制实心文本
+  // strokeText(text, x, y) 绘制空心文本
+</script>

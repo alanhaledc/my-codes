@@ -1,0 +1,46 @@
+<!--
+ * @Author: Hale
+ * @Description: property 和 attribute 的区别
+ * @Date: 2019/01/09
+ * @LastEditTime: 2019/10/17
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>property-attribute</title>
+  </head>
+  <body>
+    <div id="div1" class="class-div1">
+      <p id="p1" data-name="p1-data-name">this is p1</p>
+      <p id="p2">this is p2</p>
+    </div>
+    <input type="text" value="hello" />
+    <script>
+      // property 是属性，是早已存在的不需要外界赋予的特质。
+      // property 是 DOM 中的属性，是 JavaScript 里的对象
+      let div1 = document.getElementById("div1");
+      console.log(div1.className, div1.id); // class-div1 div1 获取属性
+      div1.className = "abc"; // 设置属性
+      console.log(div1.className); // abc
+
+      // attribute 是特性，是我们赋予某个事物的特质或对象。
+      // attribute 是 HTML 标签上的特性，它的值只能够是字符串；
+      let p1 = document.getElementById("p1");
+      console.log(p1.getAttribute("data-name")); // p1-data-name 获取特性
+      p1.setAttribute("data-name", "xyz"); // 设置特性
+      console.log(p1.getAttribute("data-name")); // xyz
+
+      // 对比
+      const input = document.querySelector("input[type=text]");
+      console.log(input.getAttribute("value")); // Hello
+      console.log(input.value); // Hello
+
+      // 文本框中再输入 “ World” 后
+      // 在 console 台输入
+      input.getAttribute("value"); // Hello
+      input.value; // Hello World
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!--
+ * @Author: Hale
+ * @Description: event-flow
+ * @Date: 2019/01/09
+ * @LastEditTime: 2020/04/02
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>event-flow</title>
+  </head>
+  <body>
+    <div class="grandparent">
+      <p class="parent">
+        <button class="target">click</button>
+      </p>
+    </div>
+    <script>
+      var grandparent = document.querySelector(".grandparent");
+      var parent = document.querySelector(".parent");
+      var target = document.querySelector(".target");
+
+      // event 事件流三个阶段：捕获 -> 目标 -> 冒泡
+      // 默认 false 冒泡 <-> true 捕获
+      window.addEventListener("click", () => console.log("window"), false);
+      document.addEventListener("click", () => console.log("document"), false);
+      grandparent.addEventListener(
+        "click",
+        () => console.log("grandparent"),
+        false
+      );
+      parent.addEventListener("click", () => console.log("parent"), false);
+      target.addEventListener("click", () => console.log("target"), false);
+    </script>
+  </body>
+</html>

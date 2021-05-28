@@ -1,0 +1,61 @@
+{
+  "name": "my-codes",
+  "version": "1.0.0",
+  "main": "",
+  "license": "MIT",
+  "scripts": {
+    "commit": "git-cz",
+    "precommit": "lint-staged",
+    "lint": "prettier --write"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,md,html,css,scss}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "devDependencies": {
+    "@apollo/client": "^3.2.0",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "apollo-client": "^2.6.8",
+    "apollo-server": "^2.18.0",
+    "co": "^4.6.0",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
+    "electron": "^7.1.10",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.18.0",
+    "graphql": "^15.3.0",
+    "lint-staged": "^9.4.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.7.3",
+    "mysql": "^2.17.1",
+    "mysql2": "^1.7.0",
+    "ntypescript": "^1.201706190042.1",
+    "prettier": "^2.0.2",
+    "q": "^1.5.1",
+    "ramda": "^0.26.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "rxjs": "^6.5.4",
+    "rxjs-hooks": "^0.5.2",
+    "sass": "^1.23.3",
+    "sequelize": "^5.19.3",
+    "thunkify": "^2.1.2",
+    "typescript": "^3.8.2",
+    "utility-types": "^3.10.0"
+  }
+}

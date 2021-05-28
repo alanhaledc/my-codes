@@ -1,0 +1,26 @@
+<!--
+ * @Author: Hale
+ * @Description: 绘制直线
+ * @Date: 2019/02/19
+ * @LastEditTime: 2019/10/17
+ -->
+
+<canvas
+  id="my-canvas"
+  width="200"
+  height="100"
+  style="border: 1px solid #000;"
+></canvas>
+
+<script>
+  var c = document.querySelector("#my-canvas");
+  var ctx = c.getContext("2d");
+
+  ctx.moveTo(0, 0);
+  ctx.lineTo(200, 100);
+  ctx.stroke();
+
+  // moveTo 移动到
+  // lineTo 画直线到
+  // stroke 行程
+</script>

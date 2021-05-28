@@ -1,0 +1,26 @@
+<!--
+ * @Author: Hale
+ * @Description: sticky footer -> flex
+ * @Date: 2019/01/31
+ * @LastEditTime: 2020/06/11
+ -->
+
+<style>
+  .wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .content {
+    flex: 1; /* 放大 1 */
+  }
+  .footer {
+    flex: 0 0 50px; /* 放大缩小0 占位 50px */
+    height: 50px;
+  }
+</style>
+
+<section class="wrapper">
+  <article class="content">主要内容</article>
+  <footer class="footer">页脚内容</footer>
+</section>

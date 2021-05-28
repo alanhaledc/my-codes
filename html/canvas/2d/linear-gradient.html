@@ -1,0 +1,27 @@
+<!--
+ * @Author: Hale
+ * @Description: 线性渐变
+ * @Date: 2019/02/19
+ * @LastEditTime: 2019/10/17
+ -->
+
+<canvas
+  id="my-canvas"
+  width="200"
+  height="100"
+  style="border: 1px solid #000;"
+></canvas>
+
+<script>
+  var c = document.querySelector("#my-canvas");
+  var ctx = c.getContext("2d");
+
+  var grd = ctx.createLinearGradient(0, 0, 200, 0);
+  grd.addColorStop(0, "red");
+  grd.addColorStop(1, "white");
+
+  ctx.fillStyle = grd;
+  ctx.fillRect(10, 10, 150, 80);
+
+  // createLinearGradient() 创造线性渐变
+</script>

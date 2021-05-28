@@ -1,0 +1,123 @@
+/*
+ * @Author: Hale
+ * @Description: stylus 比较少见的用法
+ * @Date: 2019/02/27
+ * @LastEditTime: 2019/10/17
+ */
+
+vendor(prop, args)
+  -webkit-{prop}: args
+  -moz-{prop}: args
+  {prop}: args
+
+border-radius()
+  vendor('border-radius', arguments)
+
+box-shadow()
+  vendor('box-shadow', arguments)
+
+button
+  border-radius: 1px 2px / 3px 4px
+
+// button {
+// -webkit-border-radius: 1px 2px / 3px 4px
+// -moz-border-radius: 1px 2px / 3px 4px
+// border-radius: 1px 2px / 3px 4px
+// }
+
+// 范围 ...
+1 .. 5
+// => 1 2 3 4 5
+1...5
+// => 1 2 3 4
+
+// 指数
+2 ** 8
+
+// => 256
+
+// false 列子，其他为真
+// 0
+// null
+// false
+// ''
+
+// 关键字内参 Keyword Arguments
+body
+  color: rgba(255, 200, 100, 0.5)
+  color: rgba(red: 255, green: 200, blue: 100, alpha: 0.5)
+  color: rgba(200, alpha: 0.5, blue: 100, red: 255)
+  color: rgba(255, 200, alpha: 0.5, blue: 100)
+
+// 内置方法 (Built-in Functions) 很多
+nums = 4 5
+unshift(nums, 3, 2, 1)
+nums
+// => 1 2 3 4 5
+
+// 其余参数 (Rest Params)
+
+box-shadow(args...)
+  -webkit-box-shadow: args
+  -moz-box-shadow: args
+  box-shadow: args
+
+#login
+  box-shadow: 1px 2px 5px #eee
+
+// #login {
+//   -webkit-box-shadow: 1px 2px 5px #eee
+//   -moz-box-shadow: 1px 2px 5px #eee
+//   box-shadow: 1px 2px 5px #eee
+// }
+
+// 条件语句 if else if else 除非 unless
+overload-padding = true
+
+if (overload-padding)
+  padding(y, x)
+    margin: y x
+
+body
+  padding: 5px 10px
+
+disable-padding-override = true
+
+unless (disable-padding-override is defined && disable-padding-override)
+  padding(x, y)
+    margin: y x
+
+body
+  padding: 5px 10px
+
+// 迭代 (Iteration)
+body
+  for num in 1 2 3
+    foo: num
+
+// body {
+//   foo: 1
+//   foo: 2
+//   foo: 3
+// }
+
+// 继承 (@extend)
+.message
+  padding: 10px
+  border: 1px solid #eee
+
+.warning
+  @extend .message
+  color: #E2E21E
+
+// CSS字面量 (CSS Literal) 不编译
+@css {
+  body {
+    font: 14px;
+  }
+}
+
+// 编译后
+// body {
+//   font: 14px
+// }

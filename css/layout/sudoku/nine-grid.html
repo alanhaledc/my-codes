@@ -1,0 +1,42 @@
+<!--
+ * @Author: Hale
+ * @Description: 九宫格 grid 实现
+ * @Date: 2019/01/31
+ * @LastEditTime: 2020/06/11
+ -->
+
+<style>
+  body {
+    margin: 50px;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 96px 96px 96px; /* 每列格子的宽度 */
+    grid-template-rows: 96px 96px 96px; /* 每行格子的高度 */
+  }
+  .container li {
+    line-height: 96px;
+    text-align: center;
+    border: 4px solid #7e8c8d;
+    margin-left: -4px; /* 重叠去左边 */
+    margin-top: -4px; /* 重叠去上边 */
+    list-style: none;
+  }
+  .container li:hover {
+    border-color: #f00;
+    z-index: 2;
+  }
+</style>
+<section>
+  <ul class="container">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+  </ul>
+</section>

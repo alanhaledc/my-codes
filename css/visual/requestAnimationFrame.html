@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>requestAnimationFrame demo</title>
+    <style>
+      #box {
+        margin-top: 200px;
+        width: 400px;
+        height: 400px;
+        background: red;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <script>
+      var rotate = 0;
+      var width = 400;
+      var element = document.getElementById("box");
+
+      function step() {
+        rotate += 4;
+        element.style.transform = `rotate(${rotate}deg)`;
+        window.requestAnimationFrame(step);
+      }
+
+      function small() {
+        width = width - 1;
+        element.style.width = width + "px";
+        if (width <= 50) {
+          window.requestAnimationFrame(big);
+        } else {
+          window.requestAnimationFrame(small);
+        }
+      }
+      function big() {
+        width = width + 1;
+        element.style.width = width + "px";
+        if (width >= 400) {
+          window.requestAnimationFrame(small);
+        } else {
+          window.requestAnimationFrame(big);
+        }
+      }
+
+      step();
+    </script>
+  </body>
+</html>

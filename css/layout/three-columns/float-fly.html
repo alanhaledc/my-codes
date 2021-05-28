@@ -1,0 +1,47 @@
+<!--
+ * @Author: Hale
+ * @Description: 三栏布局之双飞翼布局
+ * @Date: 2019/01/31
+ * @LastEditTime: 2019/10/17
+ -->
+
+<style>
+  .container {
+    float: left;
+    width: 100%;
+  }
+  .main,
+  .left,
+  .right {
+    height: 300px;
+  }
+  .main {
+    margin-left: 320px;
+    margin-right: 320px;
+    background-color: green;
+  }
+  .left {
+    float: left;
+    width: 300px;
+    margin-left: -100%;
+    background-color: red;
+  }
+  .right {
+    float: right;
+    width: 300px;
+    margin-left: -300px;
+    background-color: blue;
+  }
+</style>
+<section>
+  <!-- 双飞翼布局； main 放在最前面，并且只有它用容器包裹，容器向左浮动，宽度 100%；main 使用 margin 左右外边距-->
+  <div class="container">
+    <div class="main">这是双飞翼布局的中间部分</div>
+  </div>
+
+  <!-- left；向左浮动；左外边距 -100% -->
+  <div class="left">left</div>
+
+  <!-- right；向右浮动；左外边距 -本身宽度 -->
+  <div class="right">right</div>
+</section>

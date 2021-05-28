@@ -1,0 +1,40 @@
+﻿[
+  {
+    "username": "user1",
+    "password": "ad0da4010000cea5641aaf7dced2322c",
+    "orderList": [],
+    "carList": [],
+    "addressList": [
+      {
+        "recipient": "Hale1",
+        "phone": "18688886666",
+        "streetName": "深圳市南山区深南大道8888号",
+        "postCode": "100010"
+      },
+      {
+        "recipient": "Hale2",
+        "phone": "18688886666",
+        "streetName": "深圳市南山区深南大道8888号",
+        "postCode": "100010"
+      },
+      {
+        "recipient": "Hale3",
+        "phone": "18688886666",
+        "streetName": "深圳市南山区深南大道8888号",
+        "postCode": "100010"
+      },
+      {
+        "recipient": "Hale4",
+        "phone": "18688886666",
+        "streetName": "深圳市南山区深南大道8888号",
+        "postCode": "100010"
+      },
+      {
+        "recipient": "Hale5",
+        "phone": "18688886666",
+        "streetName": "深圳市南山区深南大道8888号",
+        "postCode": "100010"
+      }
+    ]
+  }
+]

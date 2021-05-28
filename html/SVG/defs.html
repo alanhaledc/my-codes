@@ -1,0 +1,20 @@
+<!--
+ * @Author: Hale
+ * @Description: 自定义形状 defs
+ * @Date: 2019/02/12
+ * @LastEditTime: 2019/10/17
+ -->
+
+<svg width="300" height="100">
+  <defs>
+    <g id="my-circle">
+      <text x="25" y="20">圆形</text>
+      <circle cx="50" cy="50" r="20"></circle>
+    </g>
+  </defs>
+  <use href="#my-circle" x="0" y="0"></use>
+  <use href="#my-circle" x="100" y="0" fill="blue"></use>
+  <use href="#my-circle" x="200" y="0" fill="white" stroke="blue"></use>
+</svg>
+
+<!-- defs 用于自定义形状，内部的代码绘制的图形不会显示，仅供引用，使用 use 复制 -->

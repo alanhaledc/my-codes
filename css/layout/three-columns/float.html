@@ -1,0 +1,31 @@
+<!--
+ * @Author: Hale
+ * @Description: 三栏布局之普通浮动布局
+ * @Date: 2019/01/31
+ * @LastEditTime: 2019/10/17
+ -->
+
+<style>
+  .container div {
+    height: 300px;
+  }
+  .left {
+    float: left;
+    width: 300px;
+    background: red;
+  }
+  .right {
+    float: right;
+    width: 300px;
+    background: green;
+  }
+  .main {
+    /* 浮动布局中间自适应放在后面 */
+    background: yellow;
+  }
+</style>
+<section class="container">
+  <div class="left">left</div>
+  <div class="right">right</div>
+  <div class="main">这是浮动布局的中间部分</div>
+</section>

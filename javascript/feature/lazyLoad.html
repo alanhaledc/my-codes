@@ -1,0 +1,57 @@
+<!--
+ * @Author: Hale
+ * @Description: 图片懒加载实现
+ * @Date: 2019/01/19
+ * @LastEditTime: 2020/06/01
+ -->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lazy Load</title>
+    <style>
+      .image-item {
+        display: block;
+        margin-bottom: 50px;
+        height: 200px; /* 一定记得设置图片高度 */
+      }
+    </style>
+  </head>
+  <body>
+    <img class="image-item" data-src="http://src.haledeng.com/tree-order.png" />
+    <img class="image-item" data-src="http://src.haledeng.com/tree-order.png" />
+    <img class="image-item" data-src="http://src.haledeng.com/tree-order.png" />
+    <img class="image-item" data-src="http://src.haledeng.com/tree-order.png" />
+    <img class="image-item" data-src="http://src.haledeng.com/tree-order.png" />
+    <img class="image-item" data-src="http://src.haledeng.com/tree-order.png" />
+    <img class="image-item" data-src="http://src.haledeng.com/tree-order.png" />
+    <img class="image-item" data-src="http://src.haledeng.com/tree-order.png" />
+    <img class="image-item" data-src="http://src.haledeng.com/tree-order.png" />
+    <img class="image-item" data-src="http://src.haledeng.com/tree-order.png" />
+    <img class="image-item" data-src="http://src.haledeng.com/tree-order.png" />
+    <img class="image-item" data-src="http://src.haledeng.com/tree-order.png" />
+    <script>
+      var viewHeight =
+        window.innerHeight || document.documentElement.clientHeight; //获取可视区高度
+
+      function lazyLoad() {
+        var images = document.querySelectorAll("img[data-src]"); // 获取全部图片元素节点
+
+        for (var i = 0; i < images.length; i++) {
+          var image = images[i];
+          var rect = image.getBoundingClientRect(); // 获得单个节点相对于浏览器视窗的位置（矩形）
+
+          // 矩形底部到视窗顶部的长度 >= 0 且 矩形顶部到视窗顶部的长度 < 可视区高度
+          if (rect.bottom >= 0 && rect.top < viewHeight) {
+            image.src = image.dataset.src; // data 的数据赋值给 src
+            image.removeAttribute("data-src"); //移除属性，下次不再遍历
+            // console.log("done");
+          }
+        }
+      }
+
+      lazyLoad(); // 刚开始还没滚动屏幕时，要先触发一次函数，初始化页面前面的图片
+      window.addEventListener("scroll", lazyLoad); // 监听窗口滚动事件
+    </script>
+  </body>
+</html>

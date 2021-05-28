@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function demo</title>
+    <style>
+      /* calc() 计算 */
+      /* min() */
+      /* max() */
+      /* clamp() 返回一个区间范围的值 clamp(MIN, VAL, MAX) */
+      /* 如果VAL在 MIN 和 MAX 范围之间，则使用 VAL 作为函数返回值； */
+      /* 如果 VAL 大于 MAX，则使用 MAX 作为返回值； */
+      /* 如果 VAL 小于 MIN，则使用 MIN 作为返回值。 */
+
+      .root {
+        width: min(1024, 100%); /* 取最小值 */
+        /* width: max(10vw, 5em, 80px); */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="root"></div>
+  </body>
+</html>

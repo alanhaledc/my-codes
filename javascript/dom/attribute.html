@@ -1,0 +1,29 @@
+<!--
+ * @Author: Hale
+ * @Description: attributes
+ * @Date: 2019/04/18
+ * @LastEditTime : 2020/02/05
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>attribute</title>
+  </head>
+  <body>
+    <input
+      type="text"
+      class="text"
+      value="hello"
+      style="color: red; outline: none;"
+    />
+  </body>
+  <script>
+    const input = document.querySelector(".text");
+    const attrs = input.attributes;
+    for (let i = 0; i < attrs.length; i++) {
+      console.log(attrs[i].nodeName, attrs[i].nodeValue);
+    }
+  </script>
+</html>

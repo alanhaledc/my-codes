@@ -1,0 +1,35 @@
+<!--
+ * @Author: Hale
+ * @Description: 三栏布局之绝对定位布局
+ * @Date: 2019/01/31
+ * @LastEditTime: 2019/10/17
+ -->
+
+<style>
+  .container div {
+    height: 300px;
+  }
+  .left {
+    position: absolute;
+    left: 0;
+    width: 300px;
+    background: red;
+  }
+  .right {
+    position: absolute;
+    right: 0;
+    width: 300px;
+    background: green;
+  }
+  .main {
+    position: absolute;
+    left: 300px;
+    right: 300px;
+    background: yellow;
+  }
+</style>
+<section class="container">
+  <div class="left">left</div>
+  <div class="main">这是绝对定位布局的中间部分</div>
+  <div class="right">right</div>
+</section>

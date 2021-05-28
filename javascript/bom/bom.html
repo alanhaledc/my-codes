@@ -1,0 +1,42 @@
+<!--
+ * @Author: Hale
+ * @Description: BOM
+ * @Date: 2019/01/09
+ * @LastEditTime : 2020/02/05
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>bom</title>
+  </head>
+  <body>
+    <script>
+      // navigator
+      let ua = navigator.userAgent;
+      console.log(ua);
+      if (ua.indexOf("Chrome") !== -1) {
+        console.log("chrome");
+      } else {
+        console.log("it is not chrome");
+      }
+
+      // location
+      console.log(location.href); // 地址
+      console.log(location.protocol); // 协议
+      console.log(location.host); // 域名 + 端口
+      console.log(location.hostname); // 域名
+      console.log(location.port); // 端口
+      console.log(location.pathname); // 路径
+      console.log(location.search); // 搜索 ?..
+      console.log(location.hash); // 哈希 #..
+
+      // history
+      // history.back()      // 后退
+      // history.forward()   // 前进
+      // history.go(1)       // 前进
+      // history.go(-1)      // 后退
+    </script>
+  </body>
+</html>
