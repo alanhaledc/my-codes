@@ -6,7 +6,10 @@
  */
 
 // 函数绑定
-const bind = (fn, context) => (...args) => fn.apply(context, args);
+const bind =
+  (fn, context) =>
+  (...args) =>
+    fn.apply(context, args);
 
 // test
 global.value = "123"; // for Node.js
