@@ -10,8 +10,7 @@
 
 // Helper to create partially applied functions
 // Takes a function and some arguments
-const partial =
-  (f, ...args) =>
+const partial = (f, ...args) =>
   // returns a function that takes the rest of the arguments
   (...moreArgs) =>
     // and calls the original function with all of them

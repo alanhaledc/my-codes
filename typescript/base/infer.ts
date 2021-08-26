@@ -28,7 +28,7 @@ function mergeObjects<T extends object>(
 ): UnionToIntersection<T> {
   return args.reduce(
     (prev, curr) => ({ ...prev, ...curr }),
-    {} as UnionToIntersection<T> as any
+    ({} as UnionToIntersection<T>) as any
   );
 }
 

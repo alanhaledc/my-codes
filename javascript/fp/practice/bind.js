@@ -2,14 +2,11 @@
  * @Author: Hale
  * @Description: Function Bind
  * @Date: 2019/03/24
- * @LastEditTime: 2019/10/27
+ * @LastEditTime: 2021/08/26
  */
 
 // 函数绑定
-const bind =
-  (fn, context) =>
-  (...args) =>
-    fn.apply(context, args);
+const bind = (fn, context) => (...args) => fn.apply(context, args);
 
 // test
 global.value = "123"; // for Node.js

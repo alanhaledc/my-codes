@@ -14,10 +14,7 @@ const isFunction = (src) => typeof src === "function";
 const isObject = (src) =>
   Object.prototype.toString.call(src) === "[object Object]";
 const isThenable = (src) => (isFunction(src) || isObject(src)) && "then" in src;
-const delay =
-  (fn, time = 0) =>
-  (value) =>
-    setTimeout(() => fn(value), time);
+const delay = (fn, time = 0) => (value) => setTimeout(() => fn(value), time);
 
 const notify = (handler, state, result) => {
   let { onFulfilled, onRejected, resolve, reject } = handler;
