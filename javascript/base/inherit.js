@@ -2,10 +2,10 @@
  * @Author: Hale
  * @Description: 继承
  * @Date: 2019/04/05
- * @LastEditTime: 2020/03/31
+ * @LastEditTime: 2022/04/14
  */
 {
-  // 一般的原型继承
+  // 一般的原型链继承
   // 子类原型指向父类实例或者父类原型
   // 缺点：会共享父类的属性
   function Parent() {
@@ -23,12 +23,38 @@
 
   Child.prototype = new Parent(); // 通过原型继承
 
-  const s1 = new Child();
-  const s2 = new Child();
+  const c1 = new Child();
+  const c2 = new Child();
 
-  console.log(s1.play, s2.play); // [ 1, 2, 3 ] [ 1, 2, 3 ]
-  s1.play.push(4);
-  console.log(s1.play, s2.play); // [ 1, 2, 3, 4 ] [ 1, 2, 3, 4 ]  共享父类属性
+  console.log(c1.play, c2.play); // [ 1, 2, 3 ] [ 1, 2, 3 ]
+  c1.play.push(4);
+  console.log(c1.play, c2.play); // [ 1, 2, 3, 4 ] [ 1, 2, 3, 4 ]  共享父类属性
+}
+
+{
+  // 借用构造函数继承
+  // 缺点：之类不能使用父类原型的方法，方法必须定义在父类的构造函数上，难以重用
+  function Parent() {
+    this.name = "parent";
+    this.play = [1, 2, 3];
+    this.sayHello = function () {
+      console.log("say hello");
+    };
+  }
+
+  Parent.prototype.say = function () {
+    console.log("say hi");
+  };
+
+  function Child() {
+    Parent.call(this); // 借用构造函数继承
+  }
+
+  const c = new Child();
+
+  console.log(c.play); // [ 1, 2, 3 ]
+  c.sayHello(); // say hello
+  console.log(c.say()); // TypeError: c.say is not a function
 }
 
 {
@@ -57,12 +83,55 @@
   // Child.prototype = Object.create(new Parent())
   // Child.prototype = Object.create(Parent.prototype)
 
-  const s1 = new Child();
-  const s2 = new Child();
+  const c1 = new Child();
+  const c2 = new Child();
 
-  console.log(s1.play, s2.play); // [ 1, 2, 3 ] [ 1, 2, 3 ]
-  s1.play.push(4);
-  console.log(s1.play, s2.play); // [ 1, 2, 3, 4 ] [ 1, 2, 3] 不会共享父类属性
+  console.log(c1.play, c2.play); // [ 1, 2, 3 ] [ 1, 2, 3 ]
+  c1.play.push(4);
+  console.log(c1.play, c2.play); // [ 1, 2, 3, 4 ] [ 1, 2, 3] 不会共享父类属性
+}
+
+{
+  // 原型式继承
+  // 缺点：父类和之类共享属性
+  const parent = {
+    name: "parent",
+    play: [1, 2, 3],
+  };
+
+  function object(o) {
+    function F() {}
+    F.prototype = o;
+    return new F();
+  }
+
+  const child = object(parent);
+  // const child = Object.create(parent); // ES6 API
+  child.play.push(4);
+
+  console.log(child.play); // [ 1, 2, 3, 4 ]
+  console.log(parent.play); // [ 1, 2, 3, 4 ]
+}
+
+{
+  // 寄生组合继承
+  // 缺点：函数难以重用
+  const parent = {
+    name: "parent",
+    play: [1, 2, 3],
+  };
+
+  function createAnother(original) {
+    let clone = object(original); // 通过调用函数创建一个新对象
+    // 以某种方式增强这个对象
+    clone.sayHi = function () {
+      console.log("hi");
+    };
+    return clone; // 返回这个对象
+  }
+
+  const child = createAnother(parent);
+  child.sayHi(); // hi
 }
 
 {
@@ -97,12 +166,12 @@
   // Child.prototype = Object.create(Parent.prototype)
   // Child.prototype.constructor = Child
 
-  const s1 = new Child();
-  const s2 = new Child();
+  const c1 = new Child();
+  const c2 = new Child();
 
-  console.log(s1.play, s2.play); // [ 1, 2, 3 ] [ 1, 2, 3 ]
-  s1.play.push(4);
-  console.log(s1.play, s2.play); // [ 1, 2, 3, 4 ] [ 1, 2, 3]
+  console.log(c1.play, c2.play); // [ 1, 2, 3 ] [ 1, 2, 3 ]
+  c1.play.push(4);
+  console.log(c1.play, c2.play); // [ 1, 2, 3, 4 ] [ 1, 2, 3]
 }
 
 {
@@ -127,10 +196,10 @@
     }
   }
 
-  const s1 = new Child();
-  const s2 = new Child();
+  const c1 = new Child();
+  const c2 = new Child();
 
-  console.log(s1.play, s2.play);
-  s1.play.push(4);
-  console.log(s1.play, s2.play);
+  console.log(c1.play, c2.play);
+  c1.play.push(4);
+  console.log(c1.play, c2.play);
 }
