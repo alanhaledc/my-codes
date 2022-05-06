@@ -2,7 +2,7 @@
  * @Author: Hale
  * @Description: event-flow
  * @Date: 2019/01/09
- * @LastEditTime: 2020/04/02
+ * @LastEditTime: 2022/05/06
  -->
 
 <!DOCTYPE html>
@@ -22,17 +22,23 @@
       var parent = document.querySelector(".parent");
       var target = document.querySelector(".target");
 
+      var isCapture = false;
+
       // event 事件流三个阶段：捕获 -> 目标 -> 冒泡
       // 默认 false 冒泡 <-> true 捕获
-      window.addEventListener("click", () => console.log("window"), false);
-      document.addEventListener("click", () => console.log("document"), false);
+      window.addEventListener("click", () => console.log("window"), isCapture);
+      document.addEventListener(
+        "click",
+        () => console.log("document"),
+        isCapture
+      );
       grandparent.addEventListener(
         "click",
         () => console.log("grandparent"),
-        false
+        isCapture
       );
-      parent.addEventListener("click", () => console.log("parent"), false);
-      target.addEventListener("click", () => console.log("target"), false);
+      parent.addEventListener("click", () => console.log("parent"), isCapture);
+      target.addEventListener("click", () => console.log("target"), isCapture);
     </script>
   </body>
 </html>
