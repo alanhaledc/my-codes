@@ -1,15 +1,28 @@
 # my-codes 我的代码
 
-- html
-  - canvas
-  - svg
-  - h5
+
+- advance
+  - apollo-graphql graphql
+  - electron
+  - rxjs
+  - refactor
+
 - css
   - layout
   - visual
   - stylus
   - scss
   - feature
+
+- engineering
+  - webpack
+  - rollup
+
+- html
+  - canvas
+  - svg
+  - h5
+
 - javascript
   - base
   - bom
@@ -22,20 +35,22 @@
   - feature
   - snippet
   - tricks
+
 - node
   - base
   - database
     - mongodb
     - mysql
     - redis
+
+-qa
+  - code-judge
+  - code-write
+  - diff-function
+  
 - typescript
   - base
   - compiler
-- advance
-  - apollo-graphql graphql
-  - electron
-  - rxjs
-  - refactor
-- engineering
-  - webpack
-  - rollup
+  - type-programming
+  - type-challenges
+
