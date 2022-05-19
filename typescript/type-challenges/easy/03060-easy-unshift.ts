@@ -18,11 +18,10 @@
 
 /* _____________ Your Code Here _____________ */
 
-type Unshift<T extends any[], U> = [U, ...T];
+type Unshift<T extends unknown[], U> = [U, ...T];
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
-import { ExpectFalse, NotEqual } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<Unshift<[], 1>, [1]>>,
