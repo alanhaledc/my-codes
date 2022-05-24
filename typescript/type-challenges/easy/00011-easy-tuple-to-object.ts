@@ -20,7 +20,7 @@
 
 /* _____________ Your Code Here _____________ */
 
-type TupleToObject<T extends readonly any[]> = {
+type TupleToObject<T extends readonly string[]> = {
   [K in T[number]]: K;
 };
 
@@ -43,7 +43,6 @@ type cases = [
   >
 ];
 
-// ???
 // @ts-expect-error
 type error = TupleToObject<[[1, 2], {}]>;
 
