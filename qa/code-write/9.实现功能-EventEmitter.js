@@ -3,7 +3,6 @@
 class EventEmitter {
   constructor() {
     this._events = new Map();
-    this._maxListeners = 10;
   }
 
   emit(type, ...args) {
@@ -23,7 +22,7 @@ class EventEmitter {
     }
   }
 
-  addListener(type, fn) {
+  on(type, fn) {
     const handler = this._events.get(type);
     if (!handler) {
       this._events.set(type, fn); // 新值
@@ -34,7 +33,7 @@ class EventEmitter {
     }
   }
 
-  removeListener(type, fn) {
+  off(type, fn) {
     const handler = this._events.get(type);
     if (handler && typeof handler === "function") {
       this._events.delete(type);
@@ -58,9 +57,9 @@ function fn1(title) {
 function fn2() {
   console.log("event");
 }
-event.addListener("msg", fn1);
-event.addListener("msg", fn2);
+event.on("msg", fn1);
+event.on("msg", fn2);
 event.emit("msg", "hello");
 
-event.removeListener("msg", fn2);
-event.emit("msg", "hello");
+event.off("msg", fn2);
+event.emit("msg", "world");
