@@ -22,7 +22,6 @@ type Push<T extends unknown[], U> = [...T, U];
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
-import { ExpectFalse, NotEqual } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<Push<[], 1>, [1]>>,
