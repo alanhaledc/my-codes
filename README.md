@@ -1,4 +1,4 @@
-# my-codes 我的代码
+# my-codes
 
 ## advance
 
